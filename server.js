@@ -44,7 +44,7 @@ router.get('/users/:name', (req, res) => {
 
 router.post('/contact', (req, res) => {
   // res.send('This is the contact page with a POST request')
-  res.send({ status: res.statusCode, params: req.params, query: req.query, body: req.body });
+  res.send({ status: res.statusCode, query: req.query, body: req.body });
 })
 
 app.use('/', router)
@@ -56,9 +56,6 @@ app.use("*", (req, res) => {
 });
 
 /* CURL POST REQUESTS */
-//curl -d "name=Alex" -X POST http://localhost:3000/contact
-//curl -d '{"name":"alex"}' -H "Content-Type: application/json" -X POST http://localhost:3000/contact
-
 // curl -XPOST -H "Content-Type: application/json" http://localhost:3000/contact -d '{"zip":"10115"}'
 
 
