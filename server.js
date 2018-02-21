@@ -1,9 +1,15 @@
 const express = require('express')
-
+var bodyParser = require('body-parser')
 const app = express()
 const PORT = process.env.PORT || 3000;
 
 const router = express.Router()
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
 
 router.use((req, res, next) => {
   console.log("/" + req.method);
